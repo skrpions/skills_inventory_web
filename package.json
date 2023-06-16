@@ -46,7 +46,7 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "angular-in-memory-web-api": "~0.15.0",
     "apexcharts": "^3.36.3",
-    "aws-amplify": "^5.0.15",
+    "aws-amplify": "^5.2.7",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.29",
     "moment": "^2.29.4",
