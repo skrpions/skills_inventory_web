@@ -1,0 +1,29 @@
+{
+  "menu": [
+    {
+      "route": "dashboard",
+      "name": "dashboard",
+      "type": "link",
+      "icon": "dashboard"
+    },
+    {
+      "route": "collaborators",
+      "name": "collaborators",
+      "type": "link",
+      "icon": "people"
+    },
+    {
+      "route": "medics",
+      "name": "medics",
+      "type": "link",
+      "icon": "group_add",
+      "permissions": {
+        "only": [
+          "ADMIN"
+        ]
+      }
+    }
+  ]
+}
+
+
