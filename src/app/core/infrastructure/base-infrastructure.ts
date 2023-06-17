@@ -58,14 +58,14 @@ export abstract class BaseInfrastructure<Entity> {
 
   /* Fake */
   listFake(): Observable<any[]> {
-    return of(this.collaboratorSrv.users);
+    return of(this.collaboratorSrv.collaborators);
   }
 
   insertFake(entity: any): Observable<any> {
-    return of(this.collaboratorSrv.users.push(entity));
+    return of(this.collaboratorSrv.collaborators.push(entity));
   }
 
   updateFake(id: number, entity: any): Observable<any> {
-    return of((this.collaboratorSrv.users[id] = entity));
+    return of((this.collaboratorSrv.collaborators[id] = entity));
   }
 }

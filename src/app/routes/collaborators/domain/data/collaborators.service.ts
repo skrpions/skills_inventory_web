@@ -5,7 +5,7 @@ import { CollaboratorEntity } from '../entities/collaborator-entity';
   providedIn: 'root',
 })
 export class CollaboratorsService {
-  users: CollaboratorEntity[] = [
+  collaborators: CollaboratorEntity[] = [
     {
       id: 0,
       skills: [

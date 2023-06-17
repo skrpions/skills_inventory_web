@@ -13,6 +13,17 @@
       "icon": "people"
     },
     {
+      "route": "users",
+      "name": "users",
+      "type": "link",
+      "icon": "face",
+      "permissions": {
+        "only": [
+          "ADMIN"
+        ]
+      }
+    },
+    {
       "route": "medics",
       "name": "medics",
       "type": "link",

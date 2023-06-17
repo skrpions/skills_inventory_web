@@ -35,6 +35,8 @@ import { ProjectApplication } from './routes/projects/application/project-applic
 import { ProjectInfrastructure } from './routes/projects/infrastructure/project-infrastructure';
 import { SkillApplication } from './routes/skills/application/skill-application';
 import { SkillInfrastructure } from './routes/skills/infrastructure/skill-infrastructure';
+import { UserApplication } from './routes/users/application/user-application';
+import { UserInfrastructure } from './routes/users/infrastructure/user-infrastructure';
 
 // Required for AOT compilation
 export function TranslateHttpLoaderFactory(http: HttpClient) {
@@ -49,6 +51,7 @@ const application = [
   ProjectApplication,
   MedicApplication,
   SkillApplication,
+  UserApplication,
 ];
 
 const infrastructure = [
@@ -58,6 +61,7 @@ const infrastructure = [
   ProjectInfrastructure,
   MedicInfrastructure,
   SkillInfrastructure,
+  UserInfrastructure,
 ];
 const interceptors = [
   {
