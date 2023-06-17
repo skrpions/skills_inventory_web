@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
+  FormControl,
   FormGroup,
   ValidationErrors,
   ValidatorFn,
@@ -32,29 +33,20 @@ export class LoginComponent {
     private auth: AuthService,
     private authApplication: AuthApplication
   ) {
-    this.build_loginForm();
+    this.initForm();
   }
 
-  private build_loginForm() {
+  private initForm() {
     this.loginForm = this.fb.nonNullable.group({
       email: [
         'nestor.martinez@dreamcodesoft.com',
         [Validators.required, this.getValidateEmailDomain(this.domainsAllowed)],
       ],
       password: ['ng-dreamcode', [Validators.required]],
+      recaptcha: [null, [Validators.required]],
       rememberMe: [false],
     });
   }
-  /* private build_loginForm() {
-    this.loginForm = this.fb.nonNullable.group({
-      email: [
-        'sergio@correo.com',
-        [Validators.required, this.getValidateEmailDomain(this.domainsAllowed)],
-      ],
-      password: ['123', [Validators.required]],
-      rememberMe: [false],
-    });
-  } */
 
   get email() {
     return this.loginForm.get('email')!;
@@ -62,6 +54,10 @@ export class LoginComponent {
 
   get password() {
     return this.loginForm.get('password')!;
+  }
+
+  get recaptcha() {
+    return this.loginForm.get('recaptcha')!;
   }
 
   get rememberMe() {
@@ -82,7 +78,7 @@ export class LoginComponent {
   login() {
     //TODO: Eliminar este login y todo lo relacionado a el cuando finalice el curso de angular 14
     // Esto es solo para ensayar interceptors, storage, guards
-    //this.loginAppAmbulance();
+    this.loginAppAmbulance();
 
     // Version Oficial
     this.isSubmitting = true;
@@ -112,11 +108,12 @@ export class LoginComponent {
   }
 
   private loginAppAmbulance(): void {
-    const credentials = {
+    const auth = {
       correo: 'sergio@correo.com',
       password: '123',
+      recaptchaReactive: this.loginForm.get('recaptcha')?.value,
     };
-    const auth = AuthFactory.create(credentials.correo, credentials.password);
+    //const auth = AuthFactory.create(credentials.correo, credentials.password);
 
     this.authApplication.login(auth);
   }

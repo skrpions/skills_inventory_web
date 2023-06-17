@@ -37,11 +37,20 @@ import { SkillApplication } from './routes/skills/application/skill-application'
 import { SkillInfrastructure } from './routes/skills/infrastructure/skill-infrastructure';
 import { UserApplication } from './routes/users/application/user-application';
 import { UserInfrastructure } from './routes/users/infrastructure/user-infrastructure';
+import {
+  RECAPTCHA_SETTINGS,
+  RecaptchaFormsModule,
+  RecaptchaModule,
+  RecaptchaSettings,
+} from 'ng-recaptcha';
 
 // Required for AOT compilation
 export function TranslateHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
+// Declaro constantes para los keys de la API
+const RECAPTCHA_V2_DUMMY_KEY = environment.recaptchaKey;
 
 // Declaron constantes para los providers
 const application = [
@@ -101,6 +110,12 @@ const interceptors = [
   providers: [
     { provide: ProfileLayoutComponent, useClass: ProfileLayoutComponent, multi: true },
     { provide: BASE_URL, useValue: environment.baseUrl },
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: {
+        siteKey: RECAPTCHA_V2_DUMMY_KEY,
+      } as RecaptchaSettings,
+    },
     httpInterceptorProviders,
     appInitializerProviders,
     ...application,

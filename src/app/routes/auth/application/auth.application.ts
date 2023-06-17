@@ -18,7 +18,7 @@ export class AuthApplication {
     private router: Router
   ) {}
 
-  login(auth: Auth) {
+  login(auth: any) {
     this.authRepository.login(auth).subscribe({
       next: this.userAuthenticated.bind(this),
       error: this.showMessageError,
