@@ -33,6 +33,12 @@
           "ADMIN"
         ]
       }
+    },
+    {
+      "route": "projects",
+      "name": "projects",
+      "type": "link",
+      "icon": "code"
     }
   ]
 }

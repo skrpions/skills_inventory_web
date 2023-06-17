@@ -9,6 +9,7 @@ import { Error404Component } from './sessions/404.component';
 import { Error500Component } from './sessions/500.component';
 import { LoginComponent } from './sessions/login/login.component';
 import { RegisterComponent } from './sessions/register/register.component';
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 
 const COMPONENTS: any[] = [
   DashboardComponent,
@@ -21,7 +22,13 @@ const COMPONENTS: any[] = [
 const COMPONENTS_DYNAMIC: any[] = [];
 
 @NgModule({
-  imports: [SharedModule, RoutesRoutingModule, NgOptimizedImage],
+  imports: [
+    SharedModule,
+    RoutesRoutingModule,
+    NgOptimizedImage,
+    RecaptchaModule,
+    RecaptchaFormsModule,
+  ],
   declarations: [...COMPONENTS, ...COMPONENTS_DYNAMIC],
 })
 export class RoutesModule {}

@@ -45,7 +45,7 @@
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia">
     </mat-form-field>
 
-    <app-table [metaData]="metaData" [dataSource]="dataSourceInicial">
+    <app-table [metaData]="metaData" [dataSource]="dataSource">
 
       <!-- Actions Column -->
       <ng-container matColumnDef="actions">
@@ -66,23 +66,14 @@
             <mat-icon>delete</mat-icon>
           </button>
 
-          <!-- Edit -->
-          <!-- <button mat-mini-fab color="primary"
-                  matTooltip="{{'table_kitchen_sink.edit' | translate}}">
-            <mat-icon>edit</mat-icon>
-          </button> -->
-
-          <!-- Delete -->
-          <!-- <button mat-mini-fab color="warn"
-                  matTooltip="{{'table_kitchen_sink.delete' | translate}}">
-            <mat-icon>delete</mat-icon>
-          </button> -->
         </td>
       </ng-container>
 
-      <app-paginator>
+      <app-paginator
+                     [length_data]="totalRecords"
+                     [page_index]="page_index"
+                     (changeEventPage)="changePage($event)">
       </app-paginator>
-
 
     </app-table>
 
