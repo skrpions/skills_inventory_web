@@ -52,19 +52,22 @@
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let row" class="row-align-rigth">
 
-          <!-- Edit -->
-          <button mat-mini-fab color="primary"
-                  (click)="openForm(row)"
-                  matTooltip="{{'table_kitchen_sink.edit' | translate}}">
+           <!-- Edit -->
+           <button mat-icon-button
+           (click)="openForm(row)"
+           aria-label="Example icon-button with a heart icon"
+           matTooltip="{{'table_kitchen_sink.edit' | translate}}">
             <mat-icon>edit</mat-icon>
           </button>
 
           <!-- Delete -->
-          <button mat-mini-fab color="warn" matTooltip="Delete"
-                  matTooltip="{{'table_kitchen_sink.delete' | translate}}"
-                  (click)="delete(row.id, row.nombre)">
+          <button mat-icon-button
+          (click)="delete(row.id, row.nombre)"
+                  aria-label="Example icon-button with a heart icon"
+                  matTooltip="{{'table_kitchen_sink.delete' | translate}}">
             <mat-icon>delete</mat-icon>
           </button>
+
         </td>
       </ng-container>
 

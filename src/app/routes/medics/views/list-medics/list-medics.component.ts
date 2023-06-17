@@ -1,19 +1,25 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ExportOptions, Messages, Modal } from '@shared/classes/base_component';
+import {
+  BaseHeaderComponent,
+  ExportOptions,
+  Messages,
+  Modal,
+} from '@shared/classes/base_component';
 import { MetaData } from '@shared/models/meta-data';
 import { UtilsService } from '@shared/services/utils.service';
 import { ToastrService } from 'ngx-toastr';
 import { MedicApplication } from '../../application/medic-application';
 import { Medic } from '../../domain/medic';
 import { FormMedicComponent } from '../form-medic/form-medic.component';
+import { MedicRepository } from '../../domain/medic-repository';
 
 @Component({
   selector: 'app-medics-views-list-medics',
   templateUrl: './list-medics.component.html',
   styleUrls: ['./list-medics.component.scss'],
 })
-export class ListMedicsComponent {
+export class ListMedicsComponent extends BaseHeaderComponent<Medic, MedicRepository> {
   icon_header = 'group_add';
   title_header = 'titles.medics';
   modal: Modal = {
@@ -42,7 +48,7 @@ export class ListMedicsComponent {
     sheetName: 'medics',
   };
 
-  dataSourceInicial: any[] = [
+  /* dataSourceInicial: any[] = [
     {
       id: 1,
       nombre: 'John',
@@ -83,18 +89,20 @@ export class ListMedicsComponent {
       dni: '987654321',
       foto: 'foto1.jpg',
     },
-  ];
+  ]; */
 
   constructor(
     protected readonly medicApplication: MedicApplication,
     protected readonly utilsSvc: UtilsService,
     protected toast: ToastrService,
     protected translate: TranslateService
-  ) {}
+  ) {
+    super(medicApplication, utilsSvc, toast, translate);
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    /* this.filterValue = filterValue.trim().toLowerCase();
+    this.filterValue = filterValue.trim().toLowerCase();
 
     if (this.filterValue === '') {
       const objectPaginationWithCurrentPage = {
@@ -109,7 +117,7 @@ export class ListMedicsComponent {
         medic?.nombre.toLowerCase().includes(this.filterValue)
       );
       this.totalRecords = this.dataSource.length;
-    } */
+    }
   }
 
   openForm(row: Medic = null!) {
