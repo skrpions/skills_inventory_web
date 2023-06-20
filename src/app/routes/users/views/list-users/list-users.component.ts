@@ -24,7 +24,7 @@ export class ListUsersComponent extends BaseHeaderComponent<UserEntity, UserRepo
   title_header = 'titles.users';
   modal: Modal = {
     component: FormUserComponent,
-    width: '500px',
+    width: '600px',
   };
   messages: Messages = {
     confirm: 'status_messages.confirmation_question',
@@ -32,7 +32,14 @@ export class ListUsersComponent extends BaseHeaderComponent<UserEntity, UserRepo
     update: 'status_messages.updated',
     delete: 'status_messages.deleted',
   };
+  // Está metadata es para visualizar todas las columnas en la web
   metaData: MetaData[] = [
+    { columnDb: 'id', customTitleColumn: 'ID' },
+    { columnDb: 'nombre', customTitleColumn: 'NOMBRE' },
+    { columnDb: 'correo', customTitleColumn: 'CORREO' },
+  ];
+  // Está metadata es para exportar solamente las columnas necesarias
+  metaDataExport: MetaData[] = [
     { columnDb: 'id', customTitleColumn: 'ID' },
     { columnDb: 'nombre', customTitleColumn: 'NOMBRE' },
     { columnDb: 'correo', customTitleColumn: 'CORREO' },
@@ -64,10 +71,10 @@ export class ListUsersComponent extends BaseHeaderComponent<UserEntity, UserRepo
       };
       this.changePage(objectPaginationWithCurrentPage);
     } else {
-      /* this.dataSource = this.dataSourceClone.filter((user: UserEntity) =>
+      this.dataSource = this.dataSourceClone.filter((user: UserEntity) =>
         user?.nombre.toLowerCase().includes(this.filterValue)
       );
-      this.totalRecords = this.dataSource.length; */
+      this.totalRecords = this.dataSource.length;
     }
   }
 }

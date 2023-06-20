@@ -6,6 +6,8 @@ import { MetaData } from '@shared/models/meta-data';
 import { UtilsService } from '@shared/services/utils.service';
 import { ToastrService } from 'ngx-toastr';
 
+export type ActionPdf = 'view' | 'download' | 'print';
+
 export type ExportOptions = {
   fileName: string;
   sheetName: string;
@@ -29,6 +31,7 @@ export abstract class BaseHeaderComponent<Entity, Repository extends BaseMethods
   abstract modal: Modal;
   abstract messages: Messages;
   abstract metaData: MetaData[];
+  abstract metaDataExport: MetaData[];
   abstract exportOptions: ExportOptions;
 
   currentPage = 0;
@@ -89,12 +92,14 @@ export abstract class BaseHeaderComponent<Entity, Repository extends BaseMethods
     reference.subscribe(response => {
       if (!response) return;
 
+      console.log('Rx', response);
+
       const id = response.id;
       //delete response.id;
 
       if (id) {
         // Update entity
-        this.application.update(id, response).subscribe({
+        this.application.update(id, response.data).subscribe({
           next: () => {
             this.changePage(objectPaginationWithCurrentPage);
             this.toast.success(this.translate.instant(this.messages.update));
@@ -102,7 +107,7 @@ export abstract class BaseHeaderComponent<Entity, Repository extends BaseMethods
         });
       } else {
         // New entity
-        this.application.insert(response).subscribe({
+        this.application.insert(response.data).subscribe({
           next: () => {
             this.changePage(objectPaginationWithCurrentPage);
             this.toast.success(this.translate.instant(this.messages.insert));
@@ -137,9 +142,23 @@ export abstract class BaseHeaderComponent<Entity, Repository extends BaseMethods
       next: (data: Entity[]) => {
         this.utilsSvc.exportDataToExcel(
           data,
-          this.metaData,
+          this.metaDataExport,
           this.exportOptions.fileName,
           this.exportOptions.sheetName
+        );
+      },
+    });
+  }
+
+  exportToPdf(action: ActionPdf) {
+    this.application.list().subscribe({
+      next: (data: Entity[]) => {
+        this.utilsSvc.exportDataToPdf(
+          data,
+          this.metaDataExport,
+          this.exportOptions.fileName,
+          this.exportOptions.sheetName,
+          action
         );
       },
     });

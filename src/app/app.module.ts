@@ -43,6 +43,8 @@ import {
   RecaptchaModule,
   RecaptchaSettings,
 } from 'ng-recaptcha';
+import { RoleApplication } from './routes/roles/application/role-application';
+import { RoleInfrastructure } from './routes/roles/infrastructure/role-infrastructure';
 
 // Required for AOT compilation
 export function TranslateHttpLoaderFactory(http: HttpClient) {
@@ -61,6 +63,7 @@ const application = [
   MedicApplication,
   SkillApplication,
   UserApplication,
+  RoleApplication,
 ];
 
 const infrastructure = [
@@ -71,6 +74,7 @@ const infrastructure = [
   MedicInfrastructure,
   SkillInfrastructure,
   UserInfrastructure,
+  RoleInfrastructure,
 ];
 const interceptors = [
   {

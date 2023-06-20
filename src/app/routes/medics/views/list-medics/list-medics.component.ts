@@ -32,6 +32,7 @@ export class ListMedicsComponent extends BaseHeaderComponent<Medic, MedicReposit
     update: 'status_messages.updated',
     delete: 'status_messages.deleted',
   };
+  // Está metadata es para visualizar todas las columnas en la web
   metaData: MetaData[] = [
     { columnDb: 'id', customTitleColumn: 'ID' },
     { columnDb: 'nombre', customTitleColumn: 'PRIMER NOMBRE' },
@@ -42,6 +43,16 @@ export class ListMedicsComponent extends BaseHeaderComponent<Medic, MedicReposit
     { columnDb: 'dni', customTitleColumn: 'DNI' },
     { columnDb: 'foto', customTitleColumn: 'FOTO' },
     { columnDb: 'activo', customTitleColumn: 'ACTIVO' },
+  ];
+
+  // Está metadata es para exportar solamente las columnas necesarias
+  metaDataExport: MetaData[] = [
+    { columnDb: 'id', customTitleColumn: 'ID' },
+    { columnDb: 'nombre', customTitleColumn: 'PRIMER NOMBRE' },
+    { columnDb: 'segundo_nombre', customTitleColumn: 'SEGUNDO NOMBRE' },
+    { columnDb: 'apellido', customTitleColumn: 'PRIMER APELLIDO' },
+    { columnDb: 'cmp', customTitleColumn: 'CMP' },
+    { columnDb: 'foto', customTitleColumn: 'FOTO' },
   ];
   exportOptions: ExportOptions = {
     fileName: 'medics',

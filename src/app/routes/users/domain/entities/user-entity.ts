@@ -10,7 +10,7 @@ export interface UserOptional {
   activo: boolean;
 }
 
-export type UserProperties = UserRequired & Partial<UserOptional>;
+export type UserProperties = Required<UserRequired> & Partial<UserOptional>;
 
 export type UserUpdate = {
   nombre: string;
@@ -21,11 +21,11 @@ export type UserUpdate = {
 
 export class UserEntity {
   private readonly id!: number;
-  private nombre!: string;
+  nombre!: string;
   private correo!: string;
   private password!: string;
-  private activo: boolean;
   private roles: any;
+  private activo: boolean;
 
   constructor(properties: UserProperties) {
     Object.assign(this, properties);
@@ -38,8 +38,8 @@ export class UserEntity {
       nombre: this.nombre,
       correo: this.correo,
       password: this.password,
-      activo: this.activo,
       roles: this.roles,
+      activo: this.activo,
     };
   }
 
