@@ -29,7 +29,6 @@ const routes: Routes = [
       { path: '403', component: Error403Component },
       { path: '404', component: Error404Component },
       { path: '500', component: Error500Component },
-
       {
         path: 'projects',
         loadChildren: () => import('./projects/projects.module').then(m => m.ProjectsModule),
@@ -37,6 +36,14 @@ const routes: Routes = [
       {
         path: 'medics',
         loadChildren: () => import('./medics/medics.module').then(m => m.MedicsModule),
+      },
+      {
+        path: 'skills',
+        loadChildren: () => import('./skills/skills.module').then(m => m.SkillsModule),
+      },
+      {
+        path: 'users',
+        loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
       },
       {
         path: 'design',
@@ -75,14 +82,6 @@ const routes: Routes = [
         path: 'collaborators',
         loadChildren: () =>
           import('./collaborators/collaborators.module').then(m => m.CollaboratorsModule),
-      },
-      {
-        path: 'skills',
-        loadChildren: () => import('./skills/skills.module').then(m => m.SkillsModule),
-      },
-      {
-        path: 'users',
-        loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
       },
     ],
   },

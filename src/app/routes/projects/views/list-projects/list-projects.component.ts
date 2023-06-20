@@ -32,10 +32,17 @@ export class ListProjectsComponent extends BaseHeaderComponent<Project, ProjectR
     update: 'status_messages.updated',
     delete: 'status_messages.deleted',
   };
+  // Está metadata es para visualizar todas las columnas en la web
   metaData: MetaData[] = [
     { columnDb: 'id', customTitleColumn: 'ID' },
     { columnDb: 'nombre', customTitleColumn: 'NOMBRE' },
     { columnDb: 'activo', customTitleColumn: 'ACTIVO' },
+  ];
+
+  // Está metadata es para exportar solamente las columnas necesarias
+  metaDataExport: MetaData[] = [
+    { columnDb: 'id', customTitleColumn: 'ID' },
+    { columnDb: 'nombre', customTitleColumn: 'NOMBRE' },
   ];
   exportOptions: ExportOptions = {
     fileName: 'projects',

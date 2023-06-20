@@ -14,11 +14,11 @@
         <mat-icon class="icon-container">arrow_drop_down</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+        <button mat-menu-item (click)="exportToPdf('view')">
           <mat-icon>remove_red_eye</mat-icon>
           <span>See</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="exportToPdf('download')">
           <mat-icon>picture_as_pdf</mat-icon>
           <span>Pdf</span>
         </button>
@@ -26,7 +26,7 @@
           <mat-icon>library_books</mat-icon>
           <span>Excel</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="exportToPdf('print')">
           <mat-icon>local_printshop</mat-icon>
           <span>Print</span>
         </button>
