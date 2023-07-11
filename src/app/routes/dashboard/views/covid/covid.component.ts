@@ -29,9 +29,9 @@ export class CovidComponent {
   constructor(
     private ngZone: NgZone,
     private dashboardSrv: DashboardService,
-    private settings: SettingsService
-  ) /* private readonly covidApplication: CovidApplication */
-  {}
+    private settings: SettingsService,
+    private readonly covidApplication: CovidApplication
+  ) {}
 
   ngOnInit() {
     this.notifySubscription = this.settings.notify.subscribe(res => {});
@@ -55,19 +55,18 @@ export class CovidComponent {
   }
 
   initChart() {
-    /*   this.covidApplication.getGraph().subscribe(data => {
-      data.map((item) => {
+    this.covidApplication.getGraph().subscribe(data => {
+      data.map(item => {
         this.countryNames.push(item.country);
         this.confirmedCases.push(item.confirmed);
-        });
-    }); */
+      });
+    });
 
     // console.log('this.charts.series', this.charts.series[0].data);
     // console.log('this.charts.categories', this.charts.xaxis.categories);
 
-    /* this.charts.series[0].data = this.confirmedCases;
+    this.charts.series[0].data = this.confirmedCases;
     this.charts.xaxis.categories = this.countryNames;
- */
 
     this.chartCovid = new ApexCharts(this.chartCovidElementRef.nativeElement, this.charts);
     console.log('this.charts', this.charts);
