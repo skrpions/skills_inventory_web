@@ -186,6 +186,55 @@ export class DashboardService {
     },
   ];
 
+  chartsCovid = {
+    series: [
+      {
+        name: 'basic',
+        data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380],
+      },
+    ],
+    chart: {
+      type: 'bar',
+      height: 350,
+    },
+    plotOptions: {
+      bar: {
+        horizontal: false,
+      },
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    xaxis: {
+      categories: [
+        'South Korea',
+        'Canada',
+        'United Kingdom',
+        'Netherlands',
+        'Italy',
+        'France',
+        'Japan',
+        'United States',
+        'China',
+        'Germany',
+      ],
+    },
+    yaxis: {
+      axisBorder: {
+        show: false,
+      },
+      axisTicks: {
+        show: false,
+      },
+      labels: {
+        show: false,
+      },
+      title: {
+        text: 'Confirmed Cases',
+      },
+    },
+  };
+
   constructor(private http: HttpClient) {}
 
   getData() {
@@ -198,6 +247,10 @@ export class DashboardService {
 
   getCharts() {
     return this.charts;
+  }
+
+  getChartsCovid() {
+    return this.chartsCovid;
   }
 
   getStats() {

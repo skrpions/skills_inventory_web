@@ -49,6 +49,7 @@
     "aws-amplify": "^5.0.15",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.29",
+    "jwt-decode": "^3.1.2",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.38",
     "ng-matero": "^15.2.3",
@@ -62,6 +63,7 @@
     "photoviewer": "^3.6.6",
     "rxjs": "~7.5.6",
     "screenfull": "^6.0.2",
+    "socket.io-client": "^2.0.3",
     "tslib": "^2.4.0",
     "xlsx": "^0.18.5",
     "zone.js": "~0.12.0"
@@ -82,6 +84,7 @@
     "@types/jasminewd2": "~2.0.10",
     "@types/jspdf": "^2.0.0",
     "@types/node": "^18.11.0",
+    "@types/socket.io-client": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.46.0",
     "@typescript-eslint/parser": "^5.46.0",
     "angular-cli-ghpages": "^1.0.5",

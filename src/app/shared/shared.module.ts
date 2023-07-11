@@ -30,6 +30,8 @@ import { DisableControlDirective } from './directives/disable-control.directive'
 import { UploadDirective } from './directives/upload.directive';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { ToObservablePipe } from './pipes/to-observable.pipe';
+import { RolesAllowedDirective } from './directives/roles-allowed.directive';
+
 const MODULES: any[] = [
   CommonModule,
   RouterModule,
@@ -60,12 +62,12 @@ const COMPONENTS: any[] = [
   PhotoComponent,
 ];
 const COMPONENTS_DYNAMIC: any[] = [];
-const DIRECTIVES: any[] = [DisableControlDirective, UploadDirective];
+const DIRECTIVES: any[] = [DisableControlDirective, UploadDirective, RolesAllowedDirective];
 const PIPES: any[] = [SafeUrlPipe, ToObservablePipe];
 
 @NgModule({
+  declarations: [...COMPONENTS, ...COMPONENTS_DYNAMIC, ...DIRECTIVES, ...PIPES],
   imports: [...MODULES],
   exports: [...MODULES, ...COMPONENTS, ...DIRECTIVES, ...PIPES],
-  declarations: [...COMPONENTS, ...COMPONENTS_DYNAMIC, ...DIRECTIVES, ...PIPES],
 })
 export class SharedModule {}

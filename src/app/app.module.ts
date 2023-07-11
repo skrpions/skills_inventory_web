@@ -45,6 +45,10 @@ import {
 } from 'ng-recaptcha';
 import { RoleApplication } from './routes/roles/application/role-application';
 import { RoleInfrastructure } from './routes/roles/infrastructure/role-infrastructure';
+import { CovidApplication } from './routes/dashboard/application/covid-application';
+import { CovidInfrastructure } from './routes/dashboard/infrastructure/covid-infrastructure';
+import { SocketApplication } from './routes/dashboard/application/socket-application';
+import { SocketInfrastructure } from './routes/dashboard/infrastructure/socket-infrastructure';
 
 // Required for AOT compilation
 export function TranslateHttpLoaderFactory(http: HttpClient) {
@@ -64,6 +68,8 @@ const application = [
   SkillApplication,
   UserApplication,
   RoleApplication,
+  CovidApplication,
+  SocketApplication,
 ];
 
 const infrastructure = [
@@ -75,6 +81,8 @@ const infrastructure = [
   SkillInfrastructure,
   UserInfrastructure,
   RoleInfrastructure,
+  CovidInfrastructure,
+  SocketInfrastructure,
 ];
 const interceptors = [
   {

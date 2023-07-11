@@ -33,7 +33,12 @@
       </mat-menu>
 
       <!-- New -->
-      <button class="end-button" mat-button mat-raised-button color="primary" (click)="openForm()">
+      <button
+      class="end-button"
+      mat-button mat-raised-button
+      color="primary"
+      (click)="openForm()"
+      *appRolesAllowed="'MEDIC,ADMIN'">
         <mat-icon>add</mat-icon>
         New
       </button>
