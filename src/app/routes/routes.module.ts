@@ -11,6 +11,7 @@ import { LoginComponent } from './sessions/login/login.component';
 import { RegisterComponent } from './sessions/register/register.component';
 import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 import { CovidComponent } from './dashboard/views/covid/covid.component';
+import { SocketComponent } from './dashboard/views/socket/socket.component';
 
 const COMPONENTS: any[] = [
   DashboardComponent,
@@ -31,6 +32,6 @@ const COMPONENTS_DYNAMIC: any[] = [];
     RecaptchaModule,
     RecaptchaFormsModule,
   ],
-  declarations: [...COMPONENTS, ...COMPONENTS_DYNAMIC],
+  declarations: [...COMPONENTS, ...COMPONENTS_DYNAMIC, SocketComponent],
 })
 export class RoutesModule {}
