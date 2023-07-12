@@ -164,6 +164,24 @@
             "baseHref": "/ng-matero/",
             "noSilent": true
           }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "ng-matero:build",
+            "compodoc": false,
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "ng-matero:build",
+            "compodoc": false,
+            "outputDir": "storybook-static"
+          }
         }
       }
     }
