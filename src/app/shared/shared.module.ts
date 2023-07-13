@@ -31,6 +31,7 @@ import { UploadDirective } from './directives/upload.directive';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { ToObservablePipe } from './pipes/to-observable.pipe';
 import { RolesAllowedDirective } from './directives/roles-allowed.directive';
+import { TableDevModule } from 'dev-table-master';
 
 const MODULES: any[] = [
   CommonModule,
@@ -50,6 +51,7 @@ const MODULES: any[] = [
   TranslateModule,
   NgOptimizedImage,
   WebcamModule,
+  TableDevModule,
 ];
 const COMPONENTS: any[] = [
   BreadcrumbComponent,
