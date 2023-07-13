@@ -11,11 +11,10 @@ import {
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatColumnDef, MatTable } from '@angular/material/table';
-import { SettingsService } from '@core';
-import { MetaData } from '../../models/meta-data';
+import { MetaData } from './meta-data';
 
 @Component({
-  selector: 'app-table',
+  selector: 'lib-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
@@ -32,17 +31,14 @@ export class TableComponent implements OnInit, AfterViewInit, AfterContentInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   displayedColumns: string[] = [];
-  options = this.settings.getOptions();
 
-  constructor(private settings: SettingsService) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.displayedColumns = this.metaData.map(item => item.columnDb);
   }
 
   ngAfterViewInit() {
-    console.log('this.options', this.options);
-
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }

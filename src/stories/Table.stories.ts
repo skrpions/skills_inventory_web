@@ -55,3 +55,32 @@ export const ThreeColumns: Story = {
     ],
   },
 };
+
+export const TwoColumns: Story = {
+  args: {
+    dataSource: [
+      // Este es uno de los Input que aparece en el component Table
+      {
+        id: 1,
+        name: 'user01',
+        email: 'user01@example.com',
+      },
+      {
+        id: 2,
+        name: 'user02',
+        email: 'user03@example.com',
+      },
+    ],
+    metaData: [
+      // Este es uno de los Input que aparece en el component Table
+      {
+        columnDb: 'name',
+        customTitleColumn: 'NOMBRE',
+      },
+      {
+        columnDb: 'email',
+        customTitleColumn: 'CORREO',
+      },
+    ],
+  },
+};
