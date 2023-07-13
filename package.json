@@ -49,7 +49,7 @@
     "@types/fs-extra": "^11.0.1",
     "angular-in-memory-web-api": "~0.15.0",
     "apexcharts": "^3.36.3",
-    "aws-amplify": "^5.0.15",
+    "aws-amplify": "^5.3.3",
     "dev-table-master": "^1.0.1",
     "file-system-cache": "^2.4.2",
     "jspdf": "^2.5.1",
