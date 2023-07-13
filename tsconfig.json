@@ -29,7 +29,12 @@
       "@testing": ["testing"],
       "@testing/*": ["testing/*"],
       "@env": ["environments"],
-      "@env/*": ["environments/*"]
+      "@env/*": [
+        "environments/*"
+      ],
+      "dev-table": [
+        "dist/dev-table"
+      ]
     },
     "useDefineForClassFields": false
   },
