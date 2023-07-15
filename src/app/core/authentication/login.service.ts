@@ -16,9 +16,19 @@ export class LoginService {
     @Inject(StorageInfrastructure) private readonly storageRepository: StorageRepository
   ) {}
 
-  login(email: string, password: string, rememberMe = false): Observable<Token> {
-    return this.http.post<Token>('/auth/login', { email, password, rememberMe });
+  login(email: string, password: string, recaptcha: string, rememberMe = false): Observable<Token> {
+    const auth = {
+      correo: email,
+      password,
+      recaptchaReactive: recaptcha,
+    };
+
+    return this.http.post<Token>('https://api-cursoangular.cursos-dev.com/users/login', auth);
   }
+
+  /* login(email: string, password: string, recaptcha: string, rememberMe = false): Observable<Token> {
+    return this.http.post<Token>('/auth/login', { email, password, rememberMe });
+  } */
 
   refresh(params: Record<string, any>) {
     return this.http.post<Token>('/auth/refresh', params);

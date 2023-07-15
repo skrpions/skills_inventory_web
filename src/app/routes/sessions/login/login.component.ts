@@ -39,10 +39,10 @@ export class LoginComponent {
   private initForm() {
     this.loginForm = this.fb.nonNullable.group({
       email: [
-        'nestor.martinez@dreamcodesoft.com',
+        'sergio@correo.com',
         [Validators.required, this.getValidateEmailDomain(this.domainsAllowed)],
       ],
-      password: ['ng-dreamcode', [Validators.required]],
+      password: ['123', [Validators.required]],
       recaptcha: [null, [Validators.required]],
       rememberMe: [false],
     });
@@ -78,13 +78,13 @@ export class LoginComponent {
   login() {
     //TODO: Eliminar este login y todo lo relacionado a el cuando finalice el curso de angular 14
     // Esto es solo para ensayar interceptors, storage, guards
-    this.loginAppAmbulance();
+    //this.loginAppAmbulance();
 
     // Version Oficial
     this.isSubmitting = true;
     if (this.loginForm.valid) {
       this.auth
-        .login(this.email.value, this.password.value, this.rememberMe.value)
+        .login(this.email.value, this.password.value, this.recaptcha.value, this.rememberMe.value)
         .pipe(filter(authenticated => authenticated))
         .subscribe({
           next: () => {
@@ -92,6 +92,8 @@ export class LoginComponent {
           },
           error: (errorRes: HttpErrorResponse) => {
             if (errorRes.status === 422) {
+              console.log('error en el status: ' + errorRes.status);
+
               const form = this.loginForm;
               const errors = errorRes.error.errors;
               Object.keys(errors).forEach(key => {

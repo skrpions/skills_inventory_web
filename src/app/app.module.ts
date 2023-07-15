@@ -128,7 +128,7 @@ const interceptors = [
         siteKey: RECAPTCHA_V2_DUMMY_KEY,
       } as RecaptchaSettings,
     },
-    httpInterceptorProviders,
+    /* httpInterceptorProviders, */
     appInitializerProviders,
     ...application,
     ...infrastructure,

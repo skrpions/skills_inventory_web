@@ -5,12 +5,19 @@ export abstract class BaseToken {
   constructor(protected attributes: Token) {}
 
   get access_token(): string {
+    return this.attributes.accessToken;
+  }
+
+  get refresh_token(): string | void {
+    return this.attributes.refreshToken;
+  }
+  /* get access_token(): string {
     return this.attributes.access_token;
   }
 
   get refresh_token(): string | void {
     return this.attributes.refresh_token;
-  }
+  } */
 
   get token_type(): string {
     return this.attributes.token_type ?? 'bearer';

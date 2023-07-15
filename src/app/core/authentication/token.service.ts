@@ -6,12 +6,13 @@ import { currentTimestamp, filterObject } from './helpers';
 import { Token } from './interface';
 import { BaseToken } from './token';
 import { TokenFactory } from './token-factory.service';
+import { ITokens } from 'app/routes/auth/domain/token.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TokenService implements OnDestroy {
-  private key = 'access-token';
+  private key = 'accessToken';
 
   private change$ = new BehaviorSubject<BaseToken | undefined>(undefined);
   private refresh$ = new Subject<BaseToken | undefined>();
