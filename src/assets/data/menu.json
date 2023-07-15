@@ -27,6 +27,12 @@
       "route": "medics",
       "name": "medics",
       "type": "link",
+      "icon": "group_add"
+    },
+    {
+      "route": "medics",
+      "name": "medics",
+      "type": "link",
       "icon": "group_add",
       "permissions": {
         "only": [
