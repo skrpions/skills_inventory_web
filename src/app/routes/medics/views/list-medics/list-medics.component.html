@@ -50,7 +50,7 @@
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia">
     </mat-form-field>
 
-    <lib-table [metaData]="metaData" [dataSource]="dataSource">
+    <app-table [metaData]="metaData" [dataSource]="dataSource">
 
       <!-- Actions Column -->
       <ng-container matColumnDef="actions">
@@ -80,7 +80,7 @@
                      (changeEventPage)="changePage($event)">
       </app-paginator>
 
-    </lib-table>
+    </app-table>
 
 
   </mat-card-content>

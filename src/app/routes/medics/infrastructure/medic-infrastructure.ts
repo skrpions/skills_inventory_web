@@ -8,6 +8,7 @@ import { MedicRepository } from '../domain/medic-repository';
 
 @Injectable()
 export class MedicInfrastructure extends BaseInfrastructure<Medic> implements MedicRepository {
+
   constructor(http: HttpClient, storageApplication: StorageApplication) {
     super(http, storageApplication, 'medics');
   }

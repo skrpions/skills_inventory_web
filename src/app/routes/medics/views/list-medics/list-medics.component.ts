@@ -36,13 +36,10 @@ export class ListMedicsComponent extends BaseHeaderComponent<Medic, MedicReposit
   metaData: MetaData[] = [
     { columnDb: 'id', customTitleColumn: 'ID' },
     { columnDb: 'nombre', customTitleColumn: 'PRIMER NOMBRE' },
-    { columnDb: 'segundo_nombre', customTitleColumn: 'SEGUNDO NOMBRE' },
     { columnDb: 'apellido', customTitleColumn: 'PRIMER APELLIDO' },
-    { columnDb: 'cmp', customTitleColumn: 'CMP' },
     { columnDb: 'correo', customTitleColumn: 'CORREO' },
     { columnDb: 'dni', customTitleColumn: 'DNI' },
     { columnDb: 'foto', customTitleColumn: 'FOTO' },
-    { columnDb: 'activo', customTitleColumn: 'ACTIVO' },
   ];
 
   // Está metadata es para exportar solamente las columnas necesarias
@@ -58,49 +55,6 @@ export class ListMedicsComponent extends BaseHeaderComponent<Medic, MedicReposit
     fileName: 'medics',
     sheetName: 'medics',
   };
-
-  /* dataSourceInicial: any[] = [
-    {
-      id: 1,
-      nombre: 'John',
-      segundo_nombre: 'Doe',
-      apellido: 'Smith',
-      cmp: 'CMP123',
-      correo: 'john.doe@example.com',
-      dni: '123456789',
-      foto: 'foto.jpg',
-    },
-    {
-      id: 2,
-      nombre: 'Pedro',
-      segundo_nombre: 'Pablo',
-      apellido: 'López',
-      cmp: 'CMP789',
-      correo: 'pedro.lopez@example.com',
-      dni: '567891234',
-      foto: 'foto2.jpg',
-    },
-    {
-      id: 3,
-      nombre: 'María',
-      segundo_nombre: 'Isabel',
-      apellido: 'Ramírez',
-      cmp: 'CMP012',
-      correo: 'maria.ramirez@example.com',
-      dni: '345678912',
-      foto: 'foto3.jpg',
-    },
-    {
-      id: 4,
-      nombre: 'Ana',
-      segundo_nombre: 'María',
-      apellido: 'Gómez',
-      cmp: 'CMP456',
-      correo: 'ana.gomez@example.com',
-      dni: '987654321',
-      foto: 'foto1.jpg',
-    },
-  ]; */
 
   constructor(
     protected readonly medicApplication: MedicApplication,
