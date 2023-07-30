@@ -66,6 +66,7 @@
 
           <!-- Delete -->
           <button mat-icon-button
+          (click)="delete(row.id, row.nombre)"
                   aria-label="Example icon-button with a heart icon"
                   matTooltip="{{'table_kitchen_sink.delete' | translate}}">
             <mat-icon>delete</mat-icon>

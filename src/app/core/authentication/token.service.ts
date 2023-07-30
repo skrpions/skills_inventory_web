@@ -133,7 +133,7 @@ export class TokenService implements OnDestroy {
     this.clearRefresh();
 
     if (this.token?.needRefresh()) {
-      this.timer$ = timer(2 * 1000).subscribe(() => {
+      this.timer$ = timer(this.token.getRefreshTime() * 1000).subscribe(() => {
         this.refresh$.next(this.token);
       });
     }
