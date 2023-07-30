@@ -92,8 +92,6 @@ export abstract class BaseHeaderComponent<Entity, Repository extends BaseMethods
     reference.subscribe(response => {
       if (!response) return;
 
-      console.log('Rx', response);
-
       const id = response.id;
       //delete response.id;
 

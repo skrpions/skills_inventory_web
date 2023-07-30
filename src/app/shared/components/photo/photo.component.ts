@@ -38,7 +38,7 @@ export class PhotoComponent {
     this.onTouched = fn;
   }
 
-  writeValue(value: any): void {
+  writeValue(value: File): void {
     if (value) {
       this.value = value;
     }
@@ -69,7 +69,7 @@ export class PhotoComponent {
 
   loadImage() {
     this.file.nativeElement.click();
-    return false;
+    //return false;
   }
 
   selectImage(event: any) {

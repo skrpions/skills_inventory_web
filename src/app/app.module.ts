@@ -49,6 +49,7 @@ import { CovidApplication } from './routes/dashboard/application/covid-applicati
 import { CovidInfrastructure } from './routes/dashboard/infrastructure/covid-infrastructure';
 import { SocketApplication } from './routes/dashboard/application/socket-application';
 import { SocketInfrastructure } from './routes/dashboard/infrastructure/socket-infrastructure';
+import { TokenxInterceptor } from '@core/interceptors/tokenx.interceptor';
 
 // Required for AOT compilation
 export function TranslateHttpLoaderFactory(http: HttpClient) {
@@ -87,7 +88,7 @@ const infrastructure = [
 const interceptors = [
   {
     provide: HTTP_INTERCEPTORS,
-    useClass: TokenTestInterceptor,
+    useClass: TokenxInterceptor,
     multi: true,
   },
 ];
@@ -128,11 +129,11 @@ const interceptors = [
         siteKey: RECAPTCHA_V2_DUMMY_KEY,
       } as RecaptchaSettings,
     },
-    httpInterceptorProviders,
+    /* httpInterceptorProviders, */
     appInitializerProviders,
     ...application,
     ...infrastructure,
-    /* ...interceptors, */
+    ...interceptors,
   ],
   bootstrap: [AppComponent],
 })

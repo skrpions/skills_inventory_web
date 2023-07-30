@@ -21,8 +21,11 @@ export class LoggingInterceptor implements HttpInterceptor {
       ),
       // Log when response observable either completes or errors
       finalize(() => {
+        console.log('entre al interceptor del login');
+
         const elapsed = Date.now() - started;
         const msg = `${req.method} "${req.urlWithParams}" ${ok} in ${elapsed} ms.`;
+        console.log('msg', msg);
         this.messenger.add(msg);
       })
     );

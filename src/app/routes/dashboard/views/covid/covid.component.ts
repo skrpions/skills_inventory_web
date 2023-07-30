@@ -35,11 +35,6 @@ export class CovidComponent {
 
   ngOnInit() {
     this.notifySubscription = this.settings.notify.subscribe(res => {});
-    console.log('x', this.chartsx);
-
-    /*  this.covidApplication.getGraph().subscribe(data => {
-       data.map((el) => console.log('el',el));
-    }) */
   }
 
   ngAfterViewInit() {
@@ -69,7 +64,6 @@ export class CovidComponent {
     this.charts.xaxis.categories = this.countryNames;
 
     this.chartCovid = new ApexCharts(this.chartCovidElementRef.nativeElement, this.charts);
-    console.log('this.charts', this.charts);
 
     this.chartCovid.render();
   }

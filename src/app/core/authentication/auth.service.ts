@@ -5,6 +5,7 @@ import { filterObject, isEmptyObject } from './helpers';
 import { User } from './interface';
 import { LoginService } from './login.service';
 import { TokenService } from './token.service';
+import jwtDecode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -33,10 +34,10 @@ export class AuthService {
     return this.tokenService.valid();
   }
 
-  login(email: string, password: string, rememberMe = false) {
-    return this.loginService.login(email, password, rememberMe).pipe(
+  login(email: string, password: string, recaptcha: string, rememberMe = false) {
+    return this.loginService.login(email, password, recaptcha, rememberMe).pipe(
       tap(token => {
-        //console.log('Sk token', token), this.tokenService.set(token);
+        console.log('Sk token', token);
         this.tokenService.set(token);
       }),
       map(() => this.check())
@@ -76,6 +77,18 @@ export class AuthService {
     if (!isEmptyObject(this.user$.getValue())) {
       return of(this.user$.getValue());
     }
+
+    const accessToken = this.tokenService.getBearerToken();
+    const payload: any = jwtDecode(accessToken);
+
+    const user: User = {
+      name: payload.name,
+      email: payload.email,
+      roles: payload.roles,
+      avatar: (payload.avatar = payload.avatar || 'assets/images/dreamcode.jpeg'),
+    };
+
+    this.user$.next(user);
 
     return this.loginService.me().pipe(tap(user => this.user$.next(user)));
   }

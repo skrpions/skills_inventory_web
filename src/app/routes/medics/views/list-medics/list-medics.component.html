@@ -37,8 +37,7 @@
       class="end-button"
       mat-button mat-raised-button
       color="primary"
-      (click)="openForm()"
-      *appRolesAllowed="'MEDIC,ADMIN'">
+      (click)="openForm()">
         <mat-icon>add</mat-icon>
         New
       </button>
@@ -50,7 +49,7 @@
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia">
     </mat-form-field>
 
-    <lib-table [metaData]="metaData" [dataSource]="dataSource">
+    <app-table [metaData]="metaData" [dataSource]="dataSource">
 
       <!-- Actions Column -->
       <ng-container matColumnDef="actions">
@@ -59,6 +58,7 @@
 
           <!-- Edit -->
           <button mat-icon-button
+          (click)="openForm(row)"
                   aria-label="Example icon-button with a heart icon"
                   matTooltip="{{'table_kitchen_sink.edit' | translate}}">
             <mat-icon>edit</mat-icon>
@@ -66,6 +66,7 @@
 
           <!-- Delete -->
           <button mat-icon-button
+          (click)="delete(row.id, row.nombre)"
                   aria-label="Example icon-button with a heart icon"
                   matTooltip="{{'table_kitchen_sink.delete' | translate}}">
             <mat-icon>delete</mat-icon>
@@ -80,7 +81,7 @@
                      (changeEventPage)="changePage($event)">
       </app-paginator>
 
-    </lib-table>
+    </app-table>
 
 
   </mat-card-content>
