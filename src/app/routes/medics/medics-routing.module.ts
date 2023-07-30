@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListMedicsComponent } from './views/list-medics/list-medics.component';
-import { FormMedicComponent } from './views/form-medic/form-medic.component';
 
 const routes: Routes = [
   {

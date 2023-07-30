@@ -7,6 +7,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { Token, User } from './interface';
 import jwtDecode from 'jwt-decode';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,8 @@ export class LoginService {
     protected http: HttpClient,
     @Inject(StorageInfrastructure) private readonly storageRepository: StorageRepository,
     private tokenService: TokenService,
-    private menuService: MenuService
+    private menuService: MenuService,
+    private router: Router
   ) {}
 
   login(email: string, password: string, recaptcha: string, rememberMe = false): Observable<Token> {
@@ -39,7 +41,7 @@ export class LoginService {
 
   logout() {
     this.storageRepository.clear(); // TODO: Es debo quitarlo cuando termine la app, ya que lo uso para limpiar los accesTokenTest y RefreshTokenTest
-    return this.http.post<any>('/auth/logout', {});
+    return of(this.router.navigateByUrl('/auth/login'));
   }
 
   me() {

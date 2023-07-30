@@ -49,6 +49,7 @@ export class FormMedicComponent {
     delete record.id;
 
     const formData = new FormData();
+
     for (const key of Object.keys(record)) {
       if (key === 'foto' && record[key]) {
         formData.append(key, record[key]);

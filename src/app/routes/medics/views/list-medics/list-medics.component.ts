@@ -27,7 +27,7 @@ export class ListMedicsComponent extends BaseHeaderComponent<Medic, MedicReposit
     width: '800px',
   };
   messages: Messages = {
-    confirm: '¿Estás seguro?',
+    confirm: 'status_messages.confirmation_question',
     insert: 'status_messages.added',
     update: 'status_messages.updated',
     delete: 'status_messages.deleted',
@@ -93,22 +93,21 @@ export class ListMedicsComponent extends BaseHeaderComponent<Medic, MedicReposit
       if (!response) return;
 
       const id = response.id;
-      delete response.id;
 
       if (id) {
         // Update entity
-        /* this.studentApplication.update(id, response).subscribe({
+        this.application.update(id, response.data).subscribe({
           next: () => {
             this.toast.success(this.translate.instant(this.messages.update));
           },
-        }); */
+        });
       } else {
         // New entity
-        /* this.studentApplication.insert(response).subscribe({
+        this.application.insert(response.data).subscribe({
           next: () => {
             this.toast.success(this.translate.instant(this.messages.insert));
           },
-        }); */
+        });
       }
     });
   }
